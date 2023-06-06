@@ -3,9 +3,14 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { categories, shortVideos } from "../constants";
+import {
+  categories,
+  shortVideos,
+  shortVideosss,
+  videosList,
+} from "../constants";
 import ShortVideoCard from "../components/shortVideoCard";
-import VideoCard from "../components/videoCard";
+import VideoCard from "../components/videoCard.js";
 import { fetchTrendingVideos } from "../api/youtube";
 
 export default function HomeScreen() {
@@ -52,13 +57,13 @@ export default function HomeScreen() {
             horizontal
             showsHorizontalScrollIndicator={false}
           >
-            {categories.map((category, index, keyt) => {
+            {categories.map((category, index) => {
               let isActive = category == activeCategory;
               let textClass = isActive ? "text-black" : "text-white";
               return (
                 <TouchableOpacity
                   onPress={() => setActiveCategory(category)}
-                  key={keyt}
+                  key={index.id}
                   style={{
                     backgroundColor: isActive
                       ? "white"
@@ -92,16 +97,16 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             className="px-4"
           >
-            {shortVideos.map((item, index, key) => (
-              <ShortVideoCard item={item} key={key} />
+            {shortVideos.map((item) => (
+              <ShortVideoCard item={item} key={item.id} />
             ))}
           </ScrollView>
         </View>
 
         {/* videos */}
         <ScrollView showsVerticalScrollIndicator={false}>
-          {videos.map((video, index, keys) => (
-            <VideoCard video={video} key={keys} />
+          {videosList.map((video, key) => (
+            <VideoCard video={video} key={key.id} />
           ))}
         </ScrollView>
       </ScrollView>

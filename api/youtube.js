@@ -4,7 +4,7 @@ import { rapidApiKey } from "../constants";
 export const fetchTrendingVideos = async (params) => {
   const options = {
     method: "GET",
-    url: "https://youtube-v3-alternative.p.rapidapi.com/trending",
+    url: "https://youtube-v3-alternative.p.rapidapi.com/video",
     params: { geo: "US", type: "now", lang: "en", ...params },
     headers: {
       "X-RapidAPI-Key": rapidApiKey,

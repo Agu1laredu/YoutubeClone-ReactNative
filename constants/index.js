@@ -1,4 +1,4 @@
-export const rapidApiKey = "place your rapid api key here";
+export const rapidApiKey = "f4c836e83fmsh76f2cda7e0490a9p19c7c0jsn915e724cb5f3";
 // below is the api used from rapid api hub
 // https://rapidapi.com/ytdlfree/api/youtube-v3-alternative/
 
@@ -49,7 +49,7 @@ export const shortVideos = [
   },
 ];
 
-export const videos = [
+export const videosList = [
   {
     id: 1,
     title: "Homeless Man Buys A Lamborghini",
