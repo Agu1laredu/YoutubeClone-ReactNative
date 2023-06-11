@@ -3,14 +3,9 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import {
-  categories,
-  shortVideos,
-  shortVideosss,
-  videosList,
-} from "../constants";
+import { categories, shortVideos } from "../constants";
 import ShortVideoCard from "../components/shortVideoCard";
-import VideoCard from "../components/videoCard.js";
+import VideoCard from "../components/videoCard";
 import { fetchTrendingVideos } from "../api/youtube";
 
 export default function HomeScreen() {
@@ -27,7 +22,6 @@ export default function HomeScreen() {
   };
   return (
     <View style={{ backgroundColor: themeColors.bg }} className="flex-1">
-      {/* logo and profile icon */}
       <SafeAreaView className="flex-row justify-between mx-4">
         <View className="flex-row items-center space-x-1">
           <Image
@@ -49,7 +43,7 @@ export default function HomeScreen() {
         </View>
       </SafeAreaView>
 
-      <ScrollView className="flex-1 -mt-0" showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1 -mt-1" showsVerticalScrollIndicator={false}>
         {/* categories */}
         <View className="py-2 pb-3">
           <ScrollView
@@ -78,9 +72,6 @@ export default function HomeScreen() {
           </ScrollView>
         </View>
 
-        {/* suggested Video */}
-        {/* <VideoCard video={videos[4]} /> */}
-
         {/* short videos */}
         <View className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
           <View className="mx-4 flex-row items-center space-x-2">
@@ -97,16 +88,16 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             className="px-4"
           >
-            {shortVideos.map((item) => (
-              <ShortVideoCard item={item} key={item.id} />
+            {shortVideos.map((item, index) => (
+              <ShortVideoCard item={item} key={index.id} />
             ))}
           </ScrollView>
         </View>
 
         {/* videos */}
         <ScrollView showsVerticalScrollIndicator={false}>
-          {videosList.map((video, key) => (
-            <VideoCard video={video} key={key.id} />
+          {videos.map((video, index) => (
+            <VideoCard video={video} key={index.id} />
           ))}
         </ScrollView>
       </ScrollView>
