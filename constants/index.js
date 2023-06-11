@@ -46,3 +46,16 @@ export const shortVideos = [
     image: require("../assets/images/short1.png"),
   },
 ];
+
+export const videosList = [
+  {
+    id: 1,
+    title: "Creando proyecto con React Native: Expo y Android Studio",
+    channelTitle: "DevZeys",
+    thumbnail: require("../assets/images/1.png"),
+    avatar: require("../assets/images/avatar.png"),
+    viewCount: "130M",
+    duration: "14:50",
+    publishedText: "2 days ago",
+  },
+];

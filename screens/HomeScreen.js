@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { categories, shortVideos } from "../constants";
+import { categories, shortVideos, videosList } from "../constants";
 import ShortVideoCard from "../components/shortVideoCard";
 import VideoCard from "../components/videoCard";
 import { fetchTrendingVideos } from "../api/youtube";
@@ -71,7 +71,11 @@ export default function HomeScreen() {
             })}
           </ScrollView>
         </View>
-
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {videosList.map((video, index) => (
+            <VideoCard video={video} key={index.id} />
+          ))}
+        </ScrollView>
         {/* short videos */}
         <View className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
           <View className="mx-4 flex-row items-center space-x-2">
